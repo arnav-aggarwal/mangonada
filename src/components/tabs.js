@@ -7,6 +7,7 @@ import Timeline from 'material-ui/svg-icons/action/timeline';
 import Equalizer from 'material-ui/svg-icons/av/equalizer';
 import FormatQuote from 'material-ui/svg-icons/editor/format-quote';
 import Bubbles from 'material-ui/svg-icons/editor/bubble-chart';
+import ViewList from 'material-ui/svg-icons/action/view-list';
 
 const styles = {
   headline: {
@@ -29,6 +30,7 @@ export default class NavTabs extends Component {
     document.getElementById('stats').className="hidden";
     document.getElementById('word-cloud').className="hidden";
     document.getElementById('container').classList.remove("hidden");
+    document.getElementById('repo-list').className="hidden";
     document.getElementById('bubble-chart').className="hidden";
   }
 
@@ -37,6 +39,7 @@ export default class NavTabs extends Component {
     document.getElementById('container').className="hidden";
     document.getElementById('word-cloud').className="hidden";
     document.getElementById('stats').classList.remove("hidden");
+    document.getElementById('repo-list').className="hidden";
     document.getElementById('bubble-chart').className="hidden";
   }
 
@@ -46,6 +49,7 @@ export default class NavTabs extends Component {
     document.getElementById('stats').className="hidden";
     document.getElementById('word-cloud').classList.remove("hidden");
     document.getElementById('bubble-chart').className="hidden";
+    document.getElementById('repo-list').className="hidden";
   }
 
   getBubbleChart(){
@@ -54,6 +58,17 @@ export default class NavTabs extends Component {
     document.getElementById('stats').className="hidden";
     document.getElementById('word-cloud').className="hidden";
     document.getElementById('bubble-chart').classList.remove("hidden");
+    document.getElementById('repo-list').className="hidden";
+
+  }
+
+  getRepoList() {
+    console.log('get repo list');
+    document.getElementById('stats').className="hidden";
+    document.getElementById('word-cloud').className="hidden";
+    document.getElementById('container').className="hidden";
+    document.getElementById('bubble-chart').className="hidden";
+    document.getElementById('repo-list').classList.remove("hidden");
   }
 
   render (){
@@ -61,23 +76,29 @@ export default class NavTabs extends Component {
       <Tabs inkBarStyle={{background: 'none'}}>
       <Tab
         icon={<Timeline />}
-        style={{padding: 5}}
+        style={{paddingRight: 5}}
         onActive={this.getGitGraph} >
       </Tab>
       <Tab
         icon={<Equalizer />}
-        style={{padding: 5}}
+        style={{paddingRight: 5}}
         onActive={this.getStats} >
       </Tab>
       <Tab
         icon={<FormatQuote />}
-        style={{padding: 5}}
+        style={{paddingRight: 5}}
         onActive={this.getWordCloud} >
       </Tab>
       <Tab
         icon={<Bubbles />}
-        style={{padding: 5}}
+        style={{paddingRight: 5}}
         onActive={this.getBubbleChart} >
+      </Tab>
+      <Tab
+        icon={<ViewList />} 
+        style={{paddingRight: 10}}
+        onActive={this.getRepoList}
+        >
       </Tab>
     </Tabs>
   )}

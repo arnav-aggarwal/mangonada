@@ -29,6 +29,8 @@ class RepoDisplay extends Component {
     $('#container').empty();
     $('.d3-tip').remove();
     // $('body').append('<div id="container"></div>');
+    
+    //stop loading icon
 
     const pageWidth = window.innerWidth;
     const pageHeight = window.innerHeight;

@@ -88,8 +88,6 @@ class WordCloud extends Component {
     // Start word cloud placement
     d3.layout.cloud().size([w * 0.90, h * 0.70])
                      .words(words)
-                    //  .rotate(() => ~~((Math.random() * 6) - 2.5) * 30)
-                     .rotate(() => 0)
                      .text(d => d.text)
                      .font('Impact')
                      .fontSize(d => d.size)

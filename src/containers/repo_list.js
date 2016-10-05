@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { fetchRepoList } from '../actions/index.js';
 import TextField from 'material-ui/TextField';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 class RepoList extends Component {
   constructor(props) {
@@ -39,17 +40,18 @@ class RepoList extends Component {
 
   render() {
     return (
-      <TextField 
-        style = {{width: 250}}
-        onChange={this.onInputChange.bind(this)}
-        value={this.state.usernameEntered}
-        onKeyDown={this.onFormSubmit.bind(this)}
-        hintText="Enter github username"
-      />
+      <MuiThemeProvider>
+        <TextField 
+          style = {{width: 250}}
+          onChange={this.onInputChange.bind(this)}
+          value={this.state.usernameEntered}
+          onKeyDown={this.onFormSubmit.bind(this)}
+          hintText="Enter github username"
+        />
+      </MuiThemeProvider>
     );
   }
 }
-
 
 
 function mapDispatchToProps(dispatch) {

@@ -7,6 +7,9 @@ const fs = require('fs');
 const path = require('path');
 const models = require('./models');
 
+const userAgent = 'cadeban';
+const secrets = 'client_id=423335fdf206466ccd3b&client_secret=bc10a999efc0335d06b6d84d470b76eda5a97b30';
+
 router.param('userName', (req, res, next, userLabel) => {
   req.user = userLabel;
   next();
@@ -22,11 +25,14 @@ router.param('endpoint', (req, res, next, endpointLabel) => {
   next();
 });
 
+router.route('/users/:username/repos')
+  .all(req, res, next => {
+
+  })
+
 router.route('/repos/:userName/:repoName')
 .all((req, res, next) => {
   const gitURL = `https://api.github.com/repos/${req.user}/${req.repo}`;
-  const userAgent = 'cadeban';
-  const secrets = 'client_id=423335fdf206466ccd3b&client_secret=bc10a999efc0335d06b6d84d470b76eda5a97b30';
   const summaryOpt = { uri: `${gitURL}?${secrets}`, headers: { 'User-Agent': userAgent } };
 
   request(summaryOpt).then((summary) => {
@@ -135,13 +141,13 @@ router.route('/repos/:userName/:repoName')
          return;
        });
 
-       /**
-         * [makeRequestBranchCommits gets a branches' commits from github's api in quantities of 100,
-                                                     * if there are more commits to be retrieved,
-                                                     * run getNextCommits again until there are no more commits to retrieve]
-                                                     * @param  {[String]} lastSha [Sha # of most recent commit on the branch]
-                                                     * @return {[Promise]} [Returns a promise that contains a recursive invocation to Github Api]
-          */
+      /**
+       * [makeRequestBranchCommits gets a branches' commits from github's api in quantities of 100,
+       * if there are more commits to be retrieved,
+       * run getNextCommits again until there are no more commits to retrieve]
+       * @param  {[String]} lastSha [Sha # of most recent commit on the branch]
+       * @return {[Promise]} [Returns a promise that contains a recursive invocation to Github Api]
+       */
        function makeRequestBranchCommits(branchLastSha) {
          return new Promise((resolve, reject) => {
            function getNextCommits(lastSha, commitArr = []) {

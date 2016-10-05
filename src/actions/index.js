@@ -25,8 +25,9 @@ export default function fetchRepo(gitURL) {
 export function fetchRepoList(username) {
   const fullUrl = repoListUrlStart + username + repoListUrlEnd;
   const request = axios.get(fullUrl);
+  console.log('fetchReoList')
   return {
     type: FETCH_REPOLIST,
     payload: request,
-  } 
+  };
 }

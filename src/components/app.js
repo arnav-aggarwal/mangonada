@@ -8,6 +8,7 @@ import RepoDisplay from '../containers/repo_display';
 import Chart from '../containers/chart';
 import WordCloud from '../containers/word_cloud';
 import BubbleChart from '../containers/bubble_chart';
+import RepoList from '../containers/repo_list';
 
 export default class App extends Component { 
   render() {
@@ -17,6 +18,7 @@ export default class App extends Component {
         <Chart />
         <WordCloud />
         <BubbleChart />
+        <RepoList />
       </div>
     );
   }

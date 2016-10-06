@@ -25,10 +25,10 @@ router.param('endpoint', (req, res, next, endpointLabel) => {
   next();
 });
 
-router.route('/users/:username/repos')
-  .all(req, res, next => {
-
-  })
+router.route('/users/:userName/repos')
+  .get((req, res) => {
+    res.status(200).json({test: 'test'});
+  });
 
 router.route('/repos/:userName/:repoName')
 .all((req, res, next) => {

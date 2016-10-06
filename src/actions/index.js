@@ -3,7 +3,7 @@ export const FETCH_REPO = 'FETCH_REPO';
 export const FETCH_REPOLIST = 'FETCH_REPOLIST';
 
 const repoUrlStart = '/api/repos/';
-const repoListUrlStart = '/users/'
+const repoListUrlStart = '/api/users/'
 const repoListUrlEnd = '/repos'
 
 /**
@@ -25,7 +25,7 @@ export default function fetchRepo(gitURL) {
 export function fetchRepoList(username) {
   const fullUrl = repoListUrlStart + username + repoListUrlEnd;
   const request = axios.get(fullUrl);
-  console.log('fetchReoList')
+  console.log('fetchRepoList')
   return {
     type: FETCH_REPOLIST,
     payload: request,

@@ -20,6 +20,7 @@ class RepoList extends Component {
    */
   onInputChange(event) {
     this.setState({ usernameEntered: event.target.value });
+    setTimeout(() => console.log(this.state.usernameEntered), 10);
   }
 
   /**

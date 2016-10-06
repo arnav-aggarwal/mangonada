@@ -32,7 +32,7 @@ router.route('/users/:userName/repos')
      request(repoListOpt)
        .then(repoList => {
          console.log(repoList);
-         res.status(200).json(repoList || {test: 'test'});
+         res.status(200).json(repoList);
        });
   });
 

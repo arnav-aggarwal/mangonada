@@ -14,6 +14,10 @@ class RepoList extends Component {
     }
   }
 
+  componentDidUpdate() {
+    console.log(this.state);
+  }
+
   /**
    * Handles url input from the user into the main searchbar
    * @param  {Object} event
@@ -54,9 +58,12 @@ class RepoList extends Component {
   }
 }
 
+function mapStateToProps(state) {
+  return { repoList: state.repoList };
+}
 
 function mapDispatchToProps(dispatch) {
   return bindActionCreators({ fetchRepoList }, dispatch);
 }
 
-export default connect(null, mapDispatchToProps)(RepoList);
+export default connect(mapStateToProps, mapDispatchToProps)(RepoList);

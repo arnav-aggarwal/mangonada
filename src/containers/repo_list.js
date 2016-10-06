@@ -18,6 +18,10 @@ class RepoList extends Component {
     console.log(this.state);
   }
 
+  componentWillReceiveProps(nextProps) {
+    console.log('next props: ', nextProps)
+  }
+
   /**
    * Handles url input from the user into the main searchbar
    * @param  {Object} event

@@ -47,7 +47,7 @@ export default class App extends Component {
         <Chart />
         <WordCloud />
         <BubbleChart />
-        <RepoList repoList={this.state.repoList} onSubmit={this.updateRepoList} />
+        <RepoList onSubmit={this.updateRepoList} />
       </div>
     );
   }

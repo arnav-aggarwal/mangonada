@@ -4,6 +4,7 @@ import { Route, IndexRoute } from 'react-router';
 import App from './components/app';
 import SearchBar from './containers/searchbar';
 import RepoDisplay from './containers/repo_display';
+import RepoList from './containers/repo_list';
 
 class AppWrapper extends Component {
   constructor(props) {   
@@ -77,5 +78,6 @@ export default (
   <Route path="/" component={AppWrapper}>
     <IndexRoute component={App} />
     <Route path=":user/:repo" component={App} />
+    <Route path="repo_list" component={RepoList} />
   </Route>  
 );

@@ -3,7 +3,7 @@ import { Route, IndexRoute } from 'react-router';
 
 import App from './components/app';
 import SearchBar from './containers/searchbar';
-import RepoDisplay from './containers/repo_display';
+import RepoDisplay from './containers/repo_display/repo_display_container';
 
 class AppWrapper extends Component {
   filterRepo(event) {

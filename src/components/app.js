@@ -4,7 +4,7 @@
  */
 
 import React, { Component } from 'react';
-import RepoDisplay from '../containers/repo_display';
+import RepoDisplay from '../containers/repo_display/repo_display_container';
 import Chart from '../containers/chart';
 import WordCloud from '../containers/word_cloud';
 import BubbleChart from '../containers/bubble_chart';

@@ -13,8 +13,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import GithubApiInterface from '../reducers/gitD3/githubBranchFunction';
-import tooltip from '../reducers/gitD3/d3tip.js';
+import GithubApiInterface from '../../reducers/gitD3/githubBranchFunction';
+import tooltip from '../../reducers/gitD3/d3tip.js';
 import _  from 'lodash';
 import $ from 'jquery';
 import displayHelpers from './display_helpers';

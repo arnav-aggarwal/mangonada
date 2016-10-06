@@ -1,7 +1,7 @@
 /* eslint-disable */
 import React, { Component } from 'react';
 import {Tabs, Tab} from 'material-ui/Tabs';
-import RepoDisplay from '../containers/repo_display';
+import RepoDisplay from '../containers/repo_display/repo_display_container';
 import FontIcon from 'material-ui/FontIcon';
 import Timeline from 'material-ui/svg-icons/action/timeline';
 import Equalizer from 'material-ui/svg-icons/av/equalizer';

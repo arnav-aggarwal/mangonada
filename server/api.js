@@ -27,7 +27,13 @@ router.param('endpoint', (req, res, next, endpointLabel) => {
 
 router.route('/users/:userName/repos')
   .get((req, res) => {
-    res.status(200).json({test: 'test'});
+     const repoListUrl = `https://api.github.com/users/${req.user}/repos`;
+     const repoListOpt = { uri: `${repoListUrl}?${secrets}`, headers: { 'User-Agent': userAgent } };
+     request(repoListOpt)
+       .then(repoList => {
+         console.log(repoList);
+         res.status(200).json(repoList || {test: 'test'});
+       });
   });
 
 router.route('/repos/:userName/:repoName')

@@ -130,8 +130,17 @@ class RepoDisplay extends Component {
 
     addDates(svg, d3commits);
     renderRepoName(d3commits[0], svg);
-  }
 
+    var data = "text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(d3commits));
+
+    var a = document.createElement('a');
+    a.href = 'data:' + data;
+    a.download = 'data.json';
+    a.innerHTML = 'download JSON';
+
+    var domElement = document.getElementById('download');
+    domElement.appendChild(a);
+  }
 
   render() {
     return (
@@ -146,12 +155,4 @@ function mapStateToProps(state) {
   return { currentRepo: state.currentRepo };
 }
 
-//anything returned from this fn will end up as props
-//on RepoDisplay container
-// function mapDispatchToProps(dispatch) {
-//   //whenever updateNode is called, the result should be passed
-//   //to all of our reducers
-//   return bindActionCreators({ updateNode }, dispatch);
-// }
-
-export default connect(mapStateToProps /*, mapDispatchToProps*/)(RepoDisplay);
+export default connect(mapStateToProps)(RepoDisplay);

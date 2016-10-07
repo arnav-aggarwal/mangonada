@@ -19,10 +19,8 @@ class RepoList extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log('next props: ', nextProps);
     const { repoList } = nextProps;
     const repoNames = JSON.parse(repoList).map(item => item.name + '<br>');
-    console.log(document.getElementById('printedList'));
     document.getElementById('printedList').innerHTML = repoNames;
   }
 

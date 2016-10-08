@@ -3,8 +3,20 @@
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.rawgit.com/twbs/bootstrap/v4-dev/dist/css/bootstrap.css">
+    <script
+      src="http://code.jquery.com/jquery-3.1.1.slim.min.js"
+      integrity="sha256-/SIrNqv8h6QGKDuNoLGA4iret+kyesCkHGzVUUV0shc="
+      crossorigin="anonymous">
+    </script>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.17/d3.min.js'></script>
   </head>
   <body>
-    <div>Hi</div>
+    <div id="infoPage">Hi</div>
   </body>
+  <script>
+    d3.select('#infoPage').append('svg')
+      .attr('width', pageWidth)
+      .attr('height', pageHeight);
+    
+  </script>
 </html>

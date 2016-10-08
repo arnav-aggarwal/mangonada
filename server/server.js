@@ -27,6 +27,12 @@ app.use(express.static(path.join(__dirname, '/..')));
 
 app.use('/api', githubAPI);
 
+app.get('/info', function(req, res) {
+  const file = path.join(__dirname, 'info.html');
+  console.log('Serving /info', file);
+  res.sendFile(file);
+});
+
 app.get('/', function (req, res) {
   const file = path.join(__dirname, 'index.html');
   console.log('Serving /', file);
